@@ -1,0 +1,8 @@
+exclude_dirs:
+  - .venv
+  - migrations
+  - tests
+  - __pycache__
+
+severity: ['MEDIUM', 'HIGH']
+confidence: ['HIGH']

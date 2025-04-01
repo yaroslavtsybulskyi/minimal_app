@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}User Lookup{% endblock %}
+
+{% block content %}
+    <h2 class="mb-3">Find a User</h2>
+
+    <form method="get" class="mb-4 w-50">
+        <div class="mb-3">
+            <input type="text" name="username" class="form-control" placeholder="Enter username" required>
+        </div>
+        <button type="submit" class="btn btn-info">Search</button>
+    </form>
+
+    {% if user_data %}
+        <div class="card w-50">
+            <div class="card-body">
+                <h5 class="card-title">Result</h5>
+                <p><strong>ID:</strong> {{ user_data.0 }}</p>
+                <p><strong>Username:</strong> {{ user_data.1 }}</p>
+                <p><strong>Email:</strong> {{ user_data.2 }}</p>
+            </div>
+        </div>
+    {% elif user_data is not none %}
+        <div class="alert alert-warning w-50" role="alert">
+            No user found with that username.
+        </div>
+    {% endif %}
+{% endblock %}
